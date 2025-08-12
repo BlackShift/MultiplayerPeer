@@ -7,9 +7,9 @@ description: Download and extract the Godot source code for use in compiling
 inputs:
   version:
     description: Version of Godot source code to download
-    default: "4.2.2-stable"
+    default: "fix_multiplayer_sync"
 
-
+#https://github.com/BlackShift/godot/archive/refs/heads/fix_multiplayer_sync.zip
 runs:
   using: "composite"
 
@@ -17,5 +17,5 @@ runs:
     - name: Download and extract Godot
       shell: bash
       run: |
-        curl -fLO https://github.com/godotengine/godot/archive/${{ inputs.version }}.tar.gz
+        curl -fLO https://github.com/BlackShift/godot/archive/refs/heads/${{ inputs.version }}.tar.gz
         tar -xvzf ${{ inputs.version }}.tar.gz --strip-components 1 --exclude=".github"
